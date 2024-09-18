@@ -4,4 +4,4 @@ streamlit
 openpyxl
 streamlit-authenticator==0.1.4
 gdown
-dotenv
+python-dotenv

@@ -1,0 +1,7 @@
+__pycache__
+.venv
+.vscode
+tuvansa
+archivo.csv
+login.py
+tuvansa-dev.competitions.csv

@@ -106,17 +106,27 @@ if authentication_status:
         with col1:
             top50_2022 = empresaEmisora[empresaEmisora["Year"] == 2022].groupby(by="RfcReceptor").agg({"NombreRazonSocialReceptor": "first", "Subtotal": "sum"}).sort_values("Subtotal", ascending=False).head(TOP_CLIENTS_VALUE)
             st.subheader("Top" + " " + str(TOP_CLIENTS_VALUE) + " " + "2022")
-            fig_2022 = px.bar(top50_2022, x="Subtotal", y="NombreRazonSocialReceptor", orientation="h", text=['${:,.2f}'.format(x) for x in top50_2022["Subtotal"]], template="seaborn")
+            fig_2022 = px.bar(top50_2022, x="Subtotal", y="NombreRazonSocialReceptor", orientation="h", text= top50_2022["NombreRazonSocialReceptor"] + " " + ['  ${:,.2f}'.format(x) for x in top50_2022["Subtotal"]], template="seaborn")
+            fig_2022.update_traces( textfont_size=10)
+            fig_2022.update_layout(yaxis_showticklabels=False)
             st.plotly_chart(fig_2022, use_container_width=True)
+            
+            st.subheader("Tabla Top" + " " + str(TOP_CLIENTS_VALUE) + " " + "2022")
+            
+            # Mostrar la tabla ajustada al contenedor
+            st.dataframe(top50_2022, use_container_width=True)        
 
         # Gráfico para 2023
         with col2:
             top50_2023 = empresaEmisora[empresaEmisora["Year"] == 2023].groupby(by="RfcReceptor").agg({"NombreRazonSocialReceptor": "first", "Subtotal": "sum"}).sort_values("Subtotal", ascending=False).head(TOP_CLIENTS_VALUE)
             st.subheader("Top" + " " + str(TOP_CLIENTS_VALUE) + " " + "2023")
-            fig_2023 = px.bar(top50_2023, x="Subtotal", y="NombreRazonSocialReceptor", orientation="h", text=['${:,.2f}'.format(x) for x in top50_2023["Subtotal"]], template="seaborn")
+            fig_2023 = px.bar(top50_2023, x="Subtotal", y="NombreRazonSocialReceptor", orientation="h", text=top50_2023["NombreRazonSocialReceptor"] + " " + ['${:,.2f}'.format(x) for x in top50_2023["Subtotal"]], template="seaborn")
+            fig_2023.update_traces( textfont_size=10)
+            fig_2023.update_layout(yaxis_showticklabels=False)
             st.plotly_chart(fig_2023, use_container_width=True)
-
-    
+            st.subheader("Tabla Top" + " " + str(TOP_CLIENTS_VALUE) + " " + "2023")
+            
+            st.dataframe(top50_2023, use_container_width=True)   
     
 elif authentication_status == False:
     st.error('Nombre de usuario o contraseña incorrectos')

@@ -10,13 +10,14 @@ load_dotenv()
 
 st.set_page_config(page_title="Tuvansa Dashboard", page_icon=":bar_chart", layout='wide')
 
-names = ['Roy Grinberg', 'Marcos Avalos', 'Alejandro Lozano', 'Marcela Castillo']
-usernames = ['rgrinberg', 'mavalos' , 'alozano', 'mcastillo']
+names = ['Roy Grinberg', 'Marcos Avalos', 'Alejandro Lozano', 'Marcela Castillo', 'Oscar Galvan']
+usernames = ['rgrinberg', 'mavalos' , 'alozano', 'mcastillo', 'ogalvan']
 passwords = [
   '$2b$12$aZkuuz.79QGY49OE1UJXr.0ARLtfaHLxTGfeeWSYIVzTiCD3JjFCq', 
   '$2b$12$BBSQuSg95vfO/3iWKPFePuJBsjRESrlbWWklOLwaM9KerS7VNc3yW', 
   '$2b$12$PSeEziaeEdjKTaud4yd.aunk5qnxsg9jBp9BLjnKnljiqgtY8BCzm',
-  '$2y$04$.pflLuPffljZbNVl37yd4OiumOKBSU.HAHrFIU6WYlmlkH0l5X0ze'
+  '$2y$04$.pflLuPffljZbNVl37yd4OiumOKBSU.HAHrFIU6WYlmlkH0l5X0ze',
+  '$2y$06$dzrjRJbAmeWPsptFHp3ajOB6/SDfscJuZxjSGPbxuvPuGaGnnkuuu'
 ]
 authenticator = stauth.Authenticate(
   names, 
